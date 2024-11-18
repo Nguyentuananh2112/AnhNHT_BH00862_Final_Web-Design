@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <title>Login</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      /* Background tone */
+      body:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          #f7f5c7 25%, /* Light yellow */
+          #ffffff 50%, /* White middle */
+          #f0f0f0 100% /* Light gray bottom */
+        );
+        z-index: -1;
+      }
+      form {
+        width: 400px;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: center;
+      }
+      input {
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #333;
+      }
+      a {
+        display: block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #000;
+        font-size: 14px;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="loginForm">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <a href="register.html">Go to Register</a>
+    </form>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const username = document.getElementById("username").value; // Lấy tên người dùng
+          const password = document.getElementById("password").value; // Lấy mật khẩu
+
+          // Kiểm tra xem tên người dùng có tồn tại trong local storage hay chưa 
+          const user = localStorage.getItem(username);
+
+          if (user) {
+            const parsedUser = JSON.parse(user);
+            // So sánh mật khẩu người dùng đã nhập.
+            // Nếu đúng, lưu thông tin người dùng vào localStorage và chuyển hướng đến index.html
+            if (parsedUser.password === password) {
+              localStorage.setItem("user", JSON.stringify(parsedUser));
+              window.location.href = "index.html";
+            } else {
+              alert("Incorrect password");
+            }
+          } else {
+            alert("User not found"); // Nếu không có tên người dùng thì sẽ hiển thị thông báo
+          }
+        });
+    </script>
+  </body>
+</html>

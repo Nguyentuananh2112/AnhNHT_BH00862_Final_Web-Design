@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex; /* Sử dụng flexbox để sắp xếp */
+  justify-content: space-between; /* Căn giữa không gian giữa các phần tử */
+  padding: 20px; /* Thêm padding cho toàn bộ container */
+}
+
+#price-content {
+  padding-right: 50px;
+}
+
+#card-content {
+  width: 50%;
+  padding: 20px;
+}
+
+#cart-list {
+  display: flex;
+  flex-direction: column; /* Cho phép các card wrap */
+  gap: 20px; /* Khoảng cách giữa các card */
+  flex-basis: 60%; /* Chiếm 60% chiều rộng */
+}
+
+.cart-item {
+  flex: 0 0 48%; /* Chiếm 50% chiều rộng với khoảng cách */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden; /* Ẩn các phần tử ra ngoài */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Căn giữa nội dung trong card */
+  width: 100%; /* Đảm bảo card chiếm toàn bộ chiều rộng */
+}
+
+.product-image {
+  width: 60%; /* Chiếm 60% chiều rộng của card */
+  height: 0; /* Đặt chiều cao 0 để sử dụng padding-bottom */
+  padding-bottom: 60%; /* Tạo chiều cao cho ảnh vuông */
+  background-size: cover; /* Đảm bảo ảnh phủ toàn bộ */
+  background-position: center; /* Căn giữa ảnh */
+  margin-bottom: 10px; /* Khoảng cách giữa ảnh và nội dung */
+}
+
+.card-content {
+  padding: 15px; /* Khoảng cách giữa nội dung và viền */
+  text-align: center; /* Căn giữa nội dung */
+}
+
+.product-title {
+  font-size: 18px;
+  margin: 10px 0 5px; /* Thêm khoảng cách trên và dưới */
+}
+
+.product-description {
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#total-price {
+  text-align: right; /* Căn phải cho tổng giá */
+  margin-top: 20px; /* Khoảng cách trên cho tổng giá */
+  flex-basis: 100%; /* Chiếm toàn bộ chiều rộng */
+}
