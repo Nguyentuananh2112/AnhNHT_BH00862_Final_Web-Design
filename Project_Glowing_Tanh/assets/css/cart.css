@@ -1,0 +1,162 @@
+/* Thiết lập các giá trị mặc định cho toàn bộ body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Màu nền sáng */
+  text-align: center;
+}
+
+/* Container chính chứa giỏ hàng và các sản phẩm */
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  max-width: 1200px; /* Chiều rộng tối đa */
+  margin: 0 auto;
+  background-color: #fff; /* Màu nền sáng cho container */
+  border-radius: 10px; /* Bo góc cho container */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ cho container */
+}
+
+/* Phần nội dung giỏ hàng */
+#card-content {
+  flex: 1 1 60%; /* Giảm bớt khoảng cách bên phải bằng cách giảm phần của giỏ hàng */
+  padding: 20px;
+}
+
+/* Danh sách các sản phẩm trong giỏ hàng */
+#cart-list {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép các sản phẩm xuống dòng khi không đủ chỗ */
+  gap: 15px; /* Giảm khoảng cách giữa các sản phẩm */
+  justify-content: space-between; /* Căn đều các sản phẩm trong hàng */
+}
+
+/* Mỗi sản phẩm trong giỏ hàng */
+.cart-item {
+  flex: 0 0 30%; /* Mỗi sản phẩm chiếm 30% chiều rộng */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Cấu trúc của mỗi card sản phẩm */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+/* Thông tin về hình ảnh sản phẩm */
+.product-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 15px;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Phần nội dung của card sản phẩm */
+.card-content {
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Tiêu đề sản phẩm */
+.product-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+/* Mô tả ngắn về sản phẩm */
+.product-description {
+  font-size: 14px;
+  margin: 0 0 10px;
+  color: #777;
+}
+
+/* Giá của sản phẩm */
+.product-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+/* Tổng giá giỏ hàng */
+#total-price {
+  flex: 1 1 30%; /* Tăng phần của tổng giá lên 30% */
+  text-align: right;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  padding-right: 30px;
+}
+
+/* Phần giá tiền */
+#total-price span {
+  color: #e74c3c; /* Màu đỏ cho tổng tiền */
+}
+
+/* Nút "Continue Shopping" */
+a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0c1318;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Khi hover vào nút "Continue Shopping" */
+a:hover {
+  background-color: #cad251;
+}
+
+/* Responsive cho các màn hình nhỏ (điện thoại, tablet) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  #card-content {
+    width: 100%; /* Giảm chiều rộng của #card-content khi màn hình nhỏ */
+  }
+
+  #cart-list {
+    width: 100%;
+    flex-direction: column; /* Các sản phẩm sẽ xếp theo cột khi màn hình nhỏ */
+    gap: 10px; /* Giảm khoảng cách giữa các sản phẩm */
+  }
+
+  .cart-item {
+    flex: 0 0 100%; /* Các sản phẩm chiếm toàn bộ chiều rộng khi màn hình nhỏ */
+  }
+
+  .product-image {
+    width: 100%; /* Chiều rộng ảnh 100% */
+    height: 200px; /* Chiều cao của ảnh */
+    margin-bottom: 15px;
+  }
+
+  #price-content {
+    text-align: center; /* Căn giữa phần tổng giá */
+  }
+}
